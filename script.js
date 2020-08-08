@@ -2,26 +2,25 @@ const searchInput = document.getElementById('searchInput');
 const results = document.getElementById('results');
 const randomMeal = document.getElementById('randomMeal');
 
-[search, meals] = '';
+let urlSearch = '';
 
-const fetchSearch = async() => {
-	meal = await fetch(
-    `https://www.themealdb.com/api/json/v1/1/search.php?s=${search}`)
+const fetchSearch = async(url) => {
+	meals = await fetch(
+    `https://www.themealdb.com/api/json/v1/1/${url}`)
     .then(res => res.json())
     .then(res => res.meals) 
 };
 
-
 const searchDisplay = async() => {
-  await fetchSearch();
+  await fetchSearch(urlSearch);
 
-  if (meal === null){
+  if (meals == null){
     results.innerHTML = `<span class="noResult">Aucun resultat</span>`
   }
   
   results.innerHTML = (
     
-    meal.map(meal => (
+    meals.map(meal => (
             
       `
       <div class="searchContainer">
@@ -39,25 +38,18 @@ const searchDisplay = async() => {
 };
 
 searchInput.addEventListener('input', (e) => {
-  search = e.target.value;
+  urlSearch = `search.php?s=${e.target.value}`;
   searchDisplay();
 });
 
 
 // GET RANDOM MEAL
-const getRandomMeal = async() => {
-  meal = await fetch(
-    `https://www.themealdb.com/api/json/v1/1/random.php`)
-    .then(res => res.json())
-    .then(res => res.meals)
-}
-
 const randomMealDisplay = async() => {
-  await getRandomMeal();
+  await fetchSearch('random.php');
 
   results.innerHTML = (
     
-    meal.map(meal => (
+    meals.map(meal => (
             
       `
         <div class="randomContainer">
@@ -76,5 +68,4 @@ const randomMealDisplay = async() => {
 };
 
 randomMeal.addEventListener('click', randomMealDisplay)
-
 randomMealDisplay();

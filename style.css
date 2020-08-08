@@ -11,10 +11,10 @@ a, a:visited {
 }
 
 body {
-  background: url(./media/basic-pics/kitchen.jpeg) no-repeat center/cover;
+  background: url(./media/basic-pics/kitchen.jpeg) center/cover;
   padding: 2rem;
   min-height: 100vh;
-  max-width: 1100px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 body h1 {
@@ -61,7 +61,7 @@ body .noResult {
   font-size: 4rem;
 }
 body .searchContainer {
-  flex: 1 0 22%;
+  flex: 1 0 18%;
   background: rgba(128, 128, 128, 0.4);
   margin: 0.5rem;
   padding: 1rem 0;
