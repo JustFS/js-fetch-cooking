@@ -1,0 +1,27 @@
+* {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align: center;
+  padding: 5px;
+  margin: 2px;
+}
+body {
+  background: whitesmoke;
+}
+.meals-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+.card {
+  flex: 1 0 20%;
+  border: 1px solid rgb(199, 199, 199);
+  border-radius: 10px;
+  box-shadow: 0 5px 30px rgb(160 240 224 / 52%);
+  padding-bottom: 20px;
+}
+img {
+  height: 200px;
+  display: block;
+  margin: 0 auto;
+  border-radius: 1500px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.364);
+}
